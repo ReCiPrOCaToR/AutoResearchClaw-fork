@@ -462,10 +462,10 @@ class OpenCodeBridge:
         if self._api_key_env:
             api_key = os.environ.get(self._api_key_env, "")
             if api_key:
-                # We always use the "openai" provider for OpenCode now,
-                # which reads OPENAI_API_KEY (works for Azure too via
-                # Bearer token auth on the OpenAI-compatible endpoint).
                 env["OPENAI_API_KEY"] = api_key
+        # Pass base_url if configured (for ModelScope, etc.)
+        if self._llm_base_url:
+            env["OPENAI_BASE_URL"] = self._llm_base_url
 
         # Use -m flag to specify model (more reliable than opencode.json)
         resolved_model = self._resolve_opencode_model()

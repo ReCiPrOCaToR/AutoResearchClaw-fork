@@ -436,6 +436,9 @@ class LLMClient:
                 else:
                     body["max_tokens"] = max_tokens
 
+                # ModelScope and some other providers require stream=false to get content
+                body["stream"] = False
+
             if json_mode:
                 # Many OpenAI-compatible providers don't support the
                 # response_format parameter and return HTTP 400.
