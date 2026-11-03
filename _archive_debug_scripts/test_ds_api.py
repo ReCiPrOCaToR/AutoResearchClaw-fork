@@ -3,7 +3,7 @@ import json
 import urllib.request
 
 url = "https://api.deepseek.com/v1/chat/completions"
-api_key = "sk-e7c0656d90364db89c407d478baba6e4"
+api_key = "sk-*****"
 
 body = {
     "model": "deepseek-v4-pro",
